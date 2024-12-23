@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/services', [ServicesController::class, 'index']);
+Route::post('/services', [ServicesController::class, 'store']);
+Route::get('token', function () {
+    return csrf_token();
 });
 
 Route::middleware([

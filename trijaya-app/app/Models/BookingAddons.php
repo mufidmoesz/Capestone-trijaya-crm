@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class BookingAddons extends Model
+class BookingAddons extends Pivot
 {
     use HasFactory;
 
@@ -14,7 +15,6 @@ class BookingAddons extends Model
     protected $fillable = [
         'booking_id',
         'addon_id',
-        'quantity'
     ];
 
     public function bookings() {

@@ -40,10 +40,11 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'service_id' => 'required|exists:services,service_id',
+            'service_id' => 'exists:services,service_id',
             'customer_name' => 'required',
             'customer_phone' => 'required',
             'truck_number' => 'required',
+            'fuel_type' => 'required',
             'booking_date' => 'required',
             'booking_time' => 'required',
             'addons' => 'array',
@@ -52,10 +53,10 @@ class BookingController extends Controller
         ]);
 
         Booking::create([
-            'service_id' => $request->service_id,
             'customer_name' => $request->customer_name,
             'customer_phone' => $request->customer_phone,
             'truck_number' => $request->truck_number,
+            'fuel_type' => $request->fuel_type,
             'booking_date' => $request->booking_date,
             'booking_time' => $request->booking_time,
             'status' => $request->status_id
@@ -81,6 +82,7 @@ class BookingController extends Controller
             'customer_name' => 'required',
             'customer_phone' => 'required',
             'truck_number' => 'required',
+            'fuel_type' => 'required',
             'booking_date' => 'required',
             'booking_time' => 'required',
             'addons' => 'array',
@@ -94,6 +96,7 @@ class BookingController extends Controller
             'customer_name' => $request->customer_name,
             'customer_phone' => $request->customer_phone,
             'truck_number' => $request->truck_number,
+            'fuel_type' => $request->fuel_type,
             'booking_date' => $request->booking_date,
             'booking_time' => $request->booking_time,
             'status' => $request->status_id

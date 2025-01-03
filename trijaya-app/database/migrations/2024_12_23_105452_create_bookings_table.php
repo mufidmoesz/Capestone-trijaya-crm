@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id('booking_id');
-            $table->foreignId('service_id')->constrained('services', 'service_id')->onDelete('cascade');
+            $table->foreignId('service_id')->nullable()->constrained('services', 'service_id')->onDelete('cascade');
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->string('truck_number');
+            $table->string('fuel_type');
             $table->date('booking_date');
             $table->time('booking_time');
             $table->foreignId('status')->constrained('statuses', 'status_id')->onDelete('cascade');

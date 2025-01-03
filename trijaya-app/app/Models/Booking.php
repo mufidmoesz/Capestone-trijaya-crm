@@ -17,6 +17,7 @@ class Booking extends Model
         'customer_name',
         'customer_phone',
         'truck_number',
+        'fuel_type',
         'booking_date',
         'booking_time',
         'status'

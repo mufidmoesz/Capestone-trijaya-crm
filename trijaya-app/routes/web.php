@@ -81,6 +81,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
     Route::get('bookings', [BookingController::class, 'index'])->name('admin.appointment.index');
+
+    Route::get('addons', [AddonsController::class, 'index'])->name('admin.sparepart.index');
 
 });

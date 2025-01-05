@@ -19,7 +19,7 @@
                     <a href="#">Feedback</a>
                 </li>
                 <li>
-                    <a href="#">Sparepart</a>
+                    <a href="addons">Sparepart</a>
                 </li>
                 <li>
                     <a href="#">Customer List</a>

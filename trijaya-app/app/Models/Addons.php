@@ -15,7 +15,8 @@ class Addons extends Model
     protected $fillable = [
         'name',
         'description',
-        'price'
+        'price',
+        'stock'
     ];
 
     public function bookings() {

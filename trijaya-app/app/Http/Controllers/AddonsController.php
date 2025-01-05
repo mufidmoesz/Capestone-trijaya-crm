@@ -12,9 +12,7 @@ class AddonsController extends Controller
     {
         $addons = Addons::all();
 
-        return response()->json([
-            'add-ons' => $addons,
-        ]);
+        return view('admin.sparepart.index', compact('addons'));
     }
 
     public function detail($id)
@@ -26,18 +24,25 @@ class AddonsController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('admin.sparepart.index');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'stock' => 'required'
         ]);
 
         Addons::create([
             'name' => $request->name,
             'description' => $request->description,
-            'price' => $request->price
+            'price' => $request->price,
+            'stock' => $request->stock
         ]);
 
         return response()->json([
@@ -46,19 +51,28 @@ class AddonsController extends Controller
         ], 201);
     }
 
+    public function edit($id)
+    {
+        $addons = Addons::find($id);
+
+        return view('admin.sparepart.edit', compact('addons'));
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'stock' => 'required'
         ]);
 
         $addon = Addons::find($id);
         $addon->update([
             'name' => $request->name,
             'description' => $request->description,
-            'price' => $request->price
+            'price' => $request->price,
+            'stock' => $request->stock
         ]);
 
         return response()->json([

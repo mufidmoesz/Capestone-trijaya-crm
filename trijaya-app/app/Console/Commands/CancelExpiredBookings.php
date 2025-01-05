@@ -30,7 +30,7 @@ class CancelExpiredBookings extends Command
         //
         $now = Carbon::now('Asia/Jakarta');
         $expiredBookings = Booking::where('status', 1)
-        ->where('booking_time', '<=', $now->subMinutes(2)->toTimeString())
+        ->where('booking_time', '<=', $now->subMinutes(15)->toTimeString())
         ->whereDate('booking_date', '<=', $now->toDateString())
         ->get();
 

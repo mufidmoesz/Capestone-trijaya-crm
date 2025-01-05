@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('fuel_type');
             $table->date('booking_date');
             $table->time('booking_time');
+            $table->decimal('estimated_total_price', 10, 2)->nullable();
             $table->foreignId('status')->constrained('statuses', 'status_id')->onDelete('cascade');
             $table->timestamps();
         });

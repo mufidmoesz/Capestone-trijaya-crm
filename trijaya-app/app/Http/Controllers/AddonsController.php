@@ -26,7 +26,7 @@ class AddonsController extends Controller
 
     public function create()
     {
-        return view('admin.sparepart.index');
+        return view('admin.sparepart.create');
     }
 
     public function store(Request $request)
@@ -45,10 +45,7 @@ class AddonsController extends Controller
             'stock' => $request->stock
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Add-ons created successfully'
-        ], 201);
+        return redirect()->route('admin.sparepart.index')->with('success', 'Barang berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -75,10 +72,7 @@ class AddonsController extends Controller
             'stock' => $request->stock
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Add-ons updated successfully'
-        ], 201);
+        return redirect()->route('admin.sparepart.index')->with('success', 'Barang berhasil diubah');
     }
 
     public function destroy($id)
@@ -86,9 +80,6 @@ class AddonsController extends Controller
         $addon = Addons::find($id);
         $addon->delete();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Add-ons deleted successfully'
-        ]);
+        return redirect()->route('admin.sparepart.index')->with('success', 'Barang berhasil dihapus');
     }
 }

@@ -53,9 +53,8 @@ Route::delete('status/{id}', [StatusController::class, 'destroy']);
 //add-ons
 Route::get('addons', [AddonsController::class, 'index']);
 Route::get('addons/{id}', [AddonsController::class, 'detail']);
-Route::post('addons', [AddonsController::class, 'store']);
-Route::put('addons/{id}', [AddonsController::class, 'update']);
-Route::delete('addons/{id}', [AddonsController::class, 'destroy']);
+
+
 
 //bookings
 
@@ -85,5 +84,9 @@ Route::middleware([
     Route::get('bookings', [BookingController::class, 'index'])->name('admin.appointment.index');
 
     Route::get('addons', [AddonsController::class, 'index'])->name('admin.sparepart.index');
+    Route::get('addons/create', [AddonsController::class, 'create'])->name('admin.sparepart.create');
+    Route::post('addons', [AddonsController::class, 'store']);
+    Route::put('addons/{id}', [AddonsController::class, 'update'])->name('addons.update');
+    Route::delete('addons/{id}', [AddonsController::class, 'destroy']);
 
 });

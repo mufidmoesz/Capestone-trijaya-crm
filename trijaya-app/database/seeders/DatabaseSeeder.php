@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([StatusSeeder::class]);
 
         $this->call([AddonsSeeder::class]);
+
+        $this->call([UserSeeder::class]);
     }
 }

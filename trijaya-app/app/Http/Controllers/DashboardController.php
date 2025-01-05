@@ -15,10 +15,8 @@ class DashboardController extends Controller
         $bookingsCompleted = Booking::where('status', 3)->count();
         $avgRating = Feedback::avg('rating');
 
-        return response()->json([
-            'Total Income' => $totalIncome,
-            'Bookings Completed' => $bookingsCompleted,
-            'Average Rating' => $avgRating,
-        ]);
+        $bookings = Booking::all();
+
+        return view('dashboard', compact('totalIncome', 'bookingsCompleted', 'avgRating', 'bookings'));
     }
 }

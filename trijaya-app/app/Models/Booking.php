@@ -35,4 +35,8 @@ class Booking extends Model
     public function addons() {
         return $this->belongsToMany(Addons::class, 'booking_addons', 'booking_id', 'addon_id')->using(BookingAddons::class);
     }
+
+    public function feedback() {
+        return $this->hasOne(Feedback::class, 'booking_id', 'booking_id');
+    }
 }

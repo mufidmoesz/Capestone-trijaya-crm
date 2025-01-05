@@ -30,7 +30,7 @@ class BookingController extends Controller
 
     public function detail($id)
     {
-        $booking = Booking::with(['service', 'addons', 'status'])->find($id);
+        $booking = Booking::with(['service', 'addons', 'status', 'feedback'])->find($id);
 
         return response()->json([
             'booking' => $booking

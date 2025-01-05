@@ -44,6 +44,10 @@ class BookingController extends Controller
             'status_id' => 1
         ]);
 
+        $request->merge([
+            'status_id' => 1
+        ]);
+
         $request->validate([
             'service_id' => 'exists:services,service_id',
             'customer_name' => 'required',
@@ -75,6 +79,7 @@ class BookingController extends Controller
 
         return redirect()->route('form')->with('success', 'Booking has been successfully created!');
 }
+    
     
 
     public function update(Request $request, $id)

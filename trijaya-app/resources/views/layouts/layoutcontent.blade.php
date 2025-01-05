@@ -176,29 +176,6 @@ a.article:hover {
         display: none;
     }
 }
-        .card-custom {
-            border-radius: 10px;
-            background-color: #6c63ff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .appointment-table {
-            background-color: #6c63ff;
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .table td{
-            background-color: #6c63ff;
-            color: #ffffff;
-        }
-        .table th{
-            background-color: #6c63ff;
-            color: #ffffff;
-        }
-        .appointment-table table {
-            color: white;
-        }
 
         @media(max-width: 767px) {
             #side_nav {

@@ -16,9 +16,10 @@ class BookingController extends Controller
     {
         $bookings = Booking::with(['service', 'addons', 'status'])->get();
 
-        return response()->json([
-            'bookings' => $bookings
-        ]);
+        // return response()->json([
+        //     'bookings' => $bookings
+        // ]);
+        return view('admin.appointment.index', compact('bookings'));
 
         // foreach ($bookings as $booking) {
         //     $bookingIds[] = $booking->booking_id;
@@ -39,6 +40,10 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge([
+            'status_id' => 1
+        ]);
+
         $request->validate([
             'service_id' => 'exists:services,service_id',
             'customer_name' => 'required',
@@ -49,7 +54,6 @@ class BookingController extends Controller
             'booking_time' => 'required',
             'addons' => 'array',
             'addons.*' => 'exists:add_ons,addon_id',
-            'status_id' => 'required|exists:statuses,status_id'
         ]);
 
         Booking::create([
@@ -69,11 +73,9 @@ class BookingController extends Controller
         $booking = Booking::find($booking_id);
         $booking->addons()->attach($addons);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Booking created successfully'
-        ]);
-    }
+        return redirect()->route('form')->with('success', 'Booking has been successfully created!');
+}
+    
 
     public function update(Request $request, $id)
     {

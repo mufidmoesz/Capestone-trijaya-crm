@@ -17,6 +17,6 @@ class DashboardController extends Controller
 
         $bookings = Booking::all();
 
-        return view('dashboard', compact('totalIncome', 'bookingsCompleted', 'avgRating', 'bookings'));
+        return view('admin.dashboard', compact('totalIncome', 'bookingsCompleted', 'avgRating', 'bookings'));
     }
 }

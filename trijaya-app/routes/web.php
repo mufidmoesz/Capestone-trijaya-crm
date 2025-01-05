@@ -7,6 +7,7 @@ use App\Http\Controllers\AddonsController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedbackController;
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,19 @@ use App\Http\Controllers\FeedbackController;
 */
 
 Route::get('/', function () {
+    return view('landing.home'); 
+})-> name('landing');
+
+Route::get('/form', function () {
+    return view('landing.form');
+})-> name('form');
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 //dashboard
-Route::get('dashboard2', [DashboardController::class, 'index']);
+// Route::get('dashboard2', [DashboardController::class, 'index']);
 
 //services
 Route::get('/services', [ServicesController::class, 'index']);
@@ -48,7 +57,7 @@ Route::put('addons/{id}', [AddonsController::class, 'update']);
 Route::delete('addons/{id}', [AddonsController::class, 'destroy']);
 
 //bookings
-Route::get('bookings', [BookingController::class, 'index']);
+
 Route::get('bookings/{id}', [BookingController::class, 'detail']);
 Route::post('bookings', [BookingController::class, 'store']);
 Route::put('bookings/{id}', [BookingController::class, 'update']);
@@ -68,7 +77,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('bookings', [BookingController::class, 'index'])->name('admin.appointment.index');
+
 });

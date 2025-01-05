@@ -8,6 +8,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedbackController;
 use App\Models\Booking;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Models\Booking;
 */
 
 Route::get('/', function () {
-    return view('landing.home'); 
+    return view('landing.home');
 })-> name('landing');
 
 Route::get('/form', function () {
@@ -67,6 +68,8 @@ Route::delete('bookings/{id}', [BookingController::class, 'destroy']);
 Route::get('feedback', [FeedbackController::class, 'index']);
 Route::post('feedback', [FeedbackController::class, 'store']);
 Route::delete('feedback/{id}', [FeedbackController::class, 'destroy']);
+
+Route::get('customers', [CustomerController::class, 'index']);
 
 Route::get('token', function () {
     return csrf_token();

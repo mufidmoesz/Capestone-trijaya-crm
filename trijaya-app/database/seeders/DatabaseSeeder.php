@@ -19,5 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call([AddonsSeeder::class]);
 
         $this->call([UserSeeder::class]);
+
+        $this->call([BookingSeeder::class]);
+
+        $this->call([BookingAddonsSeeder::class]);
+
+        $this->call([FeedbackSeeder::class]);
     }
 }

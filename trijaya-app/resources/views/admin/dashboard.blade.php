@@ -58,7 +58,7 @@
             <div class="col-md-4">
                 <div class="card-custom">
                     <h5>Completed Service</h5>
-                    <h2>{{$bookingsCompleted}}Times</h2>
+                    <h2>{{$bookingsCompleted}} Times</h2>
                     <p class="text-light">Completed from 1 month</p>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                                     <span class="badge bg-danger">Cancelled</span>
                                 @endif
                             </td>
-                           
+
                         </tr>
                         @endforeach
                     </tbody>

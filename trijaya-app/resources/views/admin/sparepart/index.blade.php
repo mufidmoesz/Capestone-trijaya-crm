@@ -1,6 +1,6 @@
 @extends('layouts.layoutcontent')
 @section('content')
-    <h3>Appointment</h3>
+    <h3>Sparepart</h3>
     <div>
         <table class="table">
             <thead>
@@ -76,4 +76,5 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection

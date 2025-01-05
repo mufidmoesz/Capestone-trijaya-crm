@@ -1,6 +1,7 @@
 <nav id="sidebar">
             <div class="sidebar-header ">
-                <h3>Trijaya Admin</h3>
+            
+                <h3><i class="bi bi-motherboard-fill"></i> Trijaya</h3>
             </div>
 
             <ul class="list-unstyled list-group-flush ">
@@ -9,7 +10,7 @@
                 </li>
               
                 <li>
-                    <a href="#">Appointment</a>
+                    <a href="bookings">Appointment</a>
                 </li>
                 <li>
                     <a href="#">Service</a>

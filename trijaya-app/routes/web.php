@@ -5,6 +5,8 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\AddonsController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\Http\Controllers\BookingController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//dashboard
+Route::get('dashboard2', [DashboardController::class, 'index']);
 
 //services
 Route::get('/services', [ServicesController::class, 'index']);
@@ -48,6 +53,11 @@ Route::get('bookings/{id}', [BookingController::class, 'detail']);
 Route::post('bookings', [BookingController::class, 'store']);
 Route::put('bookings/{id}', [BookingController::class, 'update']);
 Route::delete('bookings/{id}', [BookingController::class, 'destroy']);
+
+//feedback
+Route::get('feedback', [FeedbackController::class, 'index']);
+Route::post('feedback', [FeedbackController::class, 'store']);
+Route::delete('feedback/{id}', [FeedbackController::class, 'destroy']);
 
 Route::get('token', function () {
     return csrf_token();

@@ -90,6 +90,14 @@ class BookingController extends Controller
             'status_id' => 'required|exists:statuses,status_id'
         ]);
 
+        // Fetch the service price
+        $service = Services::find($request->service_id);
+        $servicePrice = $service->service_price;
+
+        $addonsPrice = Addons::whereIn('addon_id', $request->addons ?? [])->sum('price');
+
+        $totalPrice = $servicePrice + $addonsPrice;
+
         $booking = Booking::find($id);
         $booking->update([
             'service_id' => $request->service_id,
@@ -99,6 +107,7 @@ class BookingController extends Controller
             'fuel_type' => $request->fuel_type,
             'booking_date' => $request->booking_date,
             'booking_time' => $request->booking_time,
+            'estimated_total_price' => $totalPrice,
             'status' => $request->status_id
         ]);
 

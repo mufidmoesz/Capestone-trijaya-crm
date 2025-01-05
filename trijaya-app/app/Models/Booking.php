@@ -20,6 +20,7 @@ class Booking extends Model
         'fuel_type',
         'booking_date',
         'booking_time',
+        'estimated_total_price',
         'status'
     ];
 

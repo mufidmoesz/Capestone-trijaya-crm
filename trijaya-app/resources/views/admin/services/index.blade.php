@@ -2,6 +2,9 @@
 @section('content')
     <h3>Appointment</h3>
     <div>
+        <div class="text-end mb-3">
+            <a href="/services/create" class="btn btn-primary btn-sm">Add</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -25,9 +28,9 @@
                     <form action = '/services/{{$t->service_id}}' method="POST">
                     @csrf
                     @method('DELETE')
-                    <td> 
+                    <td>
+                    <a href="services/{{ $t->service_id }}/edit" class="btn btn-warning btn-sm">Update</a>
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                    <a href="services/{id}/edit {{ $t->service_id }}/edit" class="btn btn-warning btn-sm">Update</a>
                     </td>
                     </form>
                 </tr>

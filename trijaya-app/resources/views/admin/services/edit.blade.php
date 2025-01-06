@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label for="service_price">Service Price</label>
-                <input type="number" name="service_price" id="service_price" class="form-control"  value="{{ $service->service_price }}"  required>
+                <input type="float" name="service_price" id="service_price" class="form-control"  value="{{ $service->service_price }}"  required>
             </div>
 
             <div class="form-group">

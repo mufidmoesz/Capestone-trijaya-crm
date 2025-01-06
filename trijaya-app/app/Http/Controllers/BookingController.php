@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\BookingAddons;
 use App\Models\Addons;
 use App\Models\Services;
+use App\Models\Status;
 use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
@@ -74,9 +75,17 @@ class BookingController extends Controller
         $booking->addons()->attach($addons);
 
         return redirect()->route('form')->with('success', 'Booking has been successfully created!');
-}
-    
-    
+    }
+
+    public function edit($id)
+    {
+        $booking = Booking::with(['service', 'addons', 'status'])->findOrFail($id);
+        $services = Services::all();
+        $addons = Addons::all();
+        $statuses = Status::all();
+
+        return view('admin.appointment.edit', compact('booking', 'services', 'addons', 'statuses'));
+    }
 
     public function update(Request $request, $id)
     {
@@ -117,10 +126,7 @@ class BookingController extends Controller
         $addons = $request->get('addons');
         $booking->addons()->sync($addons);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Booking updated successfully'
-        ]);
+        return redirect()->route('admin.appointment.index')->with('success', 'booking successfully updated');
     }
 
     public function destroy($id)

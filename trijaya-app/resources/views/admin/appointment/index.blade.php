@@ -30,7 +30,7 @@
                             Detail
                         </button>
                     </td>
-                    <td>{{ $booking->booking_time }}</td>
+                    <td>{{ $booking->estimated_total_price }}</td>
                     <td>{{ optional($booking->service)->estimated_time ?? 'N/A' }}</td>
                     <td>
                         @if ($booking->status == 1)
@@ -42,6 +42,11 @@
                         @else
                         <span class="badge bg-danger">Cancelled</span>
                         @endif
+                    </td>
+                    <td>
+                        <a href="bookings/{{ $booking->booking_id }}/edit" class="btn btn-warning btn-sm">Update</a>
+                        <br>
+                        <a href="/feedback/{{ $booking->booking_id }}/create" class="btn btn-primary btn-sm">Feedback</a>
                     </td>
                 </tr>
 

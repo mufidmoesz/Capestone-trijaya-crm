@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Feedback;
+use App\Models\Booking;
 
 class FeedbackController extends Controller
 {
     //
     public function index()
     {
-        $feedbacks = Feedback::all();
+        $feedbacks = Booking::with(['feedback'])->get();
 
-        return response()->json([
-            'feedbacks' => $feedbacks
-        ]);
+        return view("admin.feedback.index", compact('feedbacks'));
+    }
+
+    public function create($id)
+    {
+        $feedback = Booking::with(['feedback'])->findOrFail($id);
+
+        return view("admin.feedback.create", compact('feedback'));
     }
 
     public function store(Request $request)
@@ -31,10 +37,7 @@ class FeedbackController extends Controller
             'comment' => $request->comment
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Feedback created successfully'
-        ], 201);
+        return redirect()->route('admin.feedback.index')->with('success', 'Feedback created successfully');
     }
 
     public function destroy($id)

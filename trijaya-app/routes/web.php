@@ -51,15 +51,11 @@ Route::get('addons/{id}', [AddonsController::class, 'detail']);
 
 
 //bookings
-
 Route::get('bookings/{id}', [BookingController::class, 'detail']);
 Route::post('bookings', [BookingController::class, 'store']);
-Route::put('bookings/{id}', [BookingController::class, 'update']);
 Route::delete('bookings/{id}', [BookingController::class, 'destroy']);
 
 //feedback
-Route::get('feedback', [FeedbackController::class, 'index']);
-Route::post('feedback', [FeedbackController::class, 'store']);
 Route::delete('feedback/{id}', [FeedbackController::class, 'destroy']);
 
 
@@ -75,6 +71,8 @@ Route::middleware([
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('bookings', [BookingController::class, 'index'])->name('admin.appointment.index');
+    Route::get('bookings/{id}/edit', [BookingController::class, 'edit']);
+    Route::put('bookings/{id}', [BookingController::class, 'update']);
 
     Route::get('addons', [AddonsController::class, 'index'])->name('admin.sparepart.index');
     Route::get('addons/create', [AddonsController::class, 'create'])->name('admin.sparepart.create');
@@ -97,4 +95,8 @@ Route::middleware([
     Route::delete('/services/{id}', [ServicesController::class, 'destroy']);
 
     Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customer_list.index');;
+    //feedback
+    Route::get('feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
+    Route::get('feedback/{id}/create', [FeedbackController::class, 'create']);
+    Route::post('feedback', [FeedbackController::class, 'store'])->name('admin.feedback.store');
 });

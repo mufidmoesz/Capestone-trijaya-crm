@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label for="service_price">Service Price</label>
-                <input type="number" name="service_price" id="service_price" class="form-control" required>
+                <input type="float" name="service_price" id="service_price" class="form-control" required>
             </div>
 
             <div class="form-group">

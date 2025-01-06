@@ -12,9 +12,7 @@ class ServicesController extends Controller
     public function index() {
         $services = Services::all();
 
-        return response()->json([
-            'services' => $services
-        ]);
+        return view('admin.services.index', compact('services'));
     }
 
     public function detail($id) {
@@ -23,6 +21,11 @@ class ServicesController extends Controller
         return response()->json([
             'service' => $service
         ]);
+    }
+
+    public function create()
+    {
+        return view('admin.services.create');
     }
 
     public function store(Request $request) {
@@ -40,10 +43,14 @@ class ServicesController extends Controller
             'estimated_time' => $request->estimated_time
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Service created successfully'
-        ], 201);
+        return redirect()->route('admin.services.index');
+    }
+
+    public function edit($id)
+    {
+        $service = Services::find($id);
+
+        return view('admin.services.edit', compact('service'));
     }
 
     public function update(Request $request, $id) {
@@ -62,19 +69,13 @@ class ServicesController extends Controller
             'estimated_time' => $request->estimated_time
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Service updated successfully'
-        ], 201);
+        return redirect()->route('admin.services.index');
     }
 
     public function destroy($id) {
         $service = Services::find($id);
         $service->delete();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Service deleted successfully'
-        ]);
+        return redirect()->route('admin.services.index');
     }
 }

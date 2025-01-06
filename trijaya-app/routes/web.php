@@ -37,11 +37,7 @@ Route::get('/welcome', function () {
 // Route::get('dashboard2', [DashboardController::class, 'index']);
 
 //services
-Route::get('/services', [ServicesController::class, 'index']);
-Route::get('services/{id}', [ServicesController::class, 'detail']);
-Route::post('/services', [ServicesController::class, 'store']);
-Route::put('/services/{id}', [ServicesController::class, 'update']);
-Route::delete('/services/{id}', [ServicesController::class, 'destroy']);
+
 
 //status
 Route::get('status', [StatusController::class, 'index']);
@@ -89,4 +85,17 @@ Route::middleware([
     Route::put('addons/{id}', [AddonsController::class, 'update'])->name('addons.update');
     Route::delete('addons/{id}', [AddonsController::class, 'destroy']);
 
+    Route::get('/services', [ServicesController::class, 'index'])->name('admin.services.index');
+
+    Route::get('services/{id}/show', [ServicesController::class, 'detail']);
+
+    Route::get('/services/create', [ServicesController::class, 'create']);
+
+    Route::post('/services', [ServicesController::class, 'store'])->name('admin.services.store');
+
+    Route::get('services/{id}/edit', [ServicesController::class, 'edit'])->name('admin.services.edit');
+
+    Route::put('/services/{id}', [ServicesController::class, 'update'])->name('admin.services.update') ;
+
+    Route::delete('/services/{id}', [ServicesController::class, 'destroy']);
 });

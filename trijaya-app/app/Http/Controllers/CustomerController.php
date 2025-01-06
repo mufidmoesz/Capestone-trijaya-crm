@@ -21,8 +21,7 @@ class CustomerController extends Controller
         ->groupBy('truck_number', 'fuel_type')
         ->get();
 
-        return response()->json([
-            'trucks' => $trucks
-        ]);
+        return view('admin.customer_list.index', compact('trucks'));
+            //'trucks' => $trucks
     }
 }

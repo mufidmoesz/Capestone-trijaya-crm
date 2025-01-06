@@ -36,8 +36,6 @@ Route::get('/welcome', function () {
 //dashboard
 // Route::get('dashboard2', [DashboardController::class, 'index']);
 
-//services
-
 
 //status
 Route::get('status', [StatusController::class, 'index']);
@@ -64,7 +62,6 @@ Route::get('feedback', [FeedbackController::class, 'index']);
 Route::post('feedback', [FeedbackController::class, 'store']);
 Route::delete('feedback/{id}', [FeedbackController::class, 'destroy']);
 
-Route::get('customers', [CustomerController::class, 'index']);
 
 Route::get('token', function () {
     return csrf_token();
@@ -98,4 +95,6 @@ Route::middleware([
     Route::put('/services/{id}', [ServicesController::class, 'update'])->name('admin.services.update') ;
 
     Route::delete('/services/{id}', [ServicesController::class, 'destroy']);
+
+    Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customer_list.index');;
 });

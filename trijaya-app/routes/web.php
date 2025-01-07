@@ -99,4 +99,5 @@ Route::middleware([
     Route::get('feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
     Route::get('feedback/{id}/create', [FeedbackController::class, 'create']);
     Route::post('feedback', [FeedbackController::class, 'store'])->name('admin.feedback.store');
+    
 });

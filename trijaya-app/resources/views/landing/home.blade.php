@@ -72,8 +72,8 @@
         <div class="col-lg-8 col-md-10">
           <span class="badge rounded-pill bg-secondary text-light px-3 py-2 mb-3">Trijaya Workshop</span>
           <h1 class="display-4 fw-bold text-uppercase"></h1>
-          <p class="lead">Pellentesque vehicula eros a dui pretium ornare. Phasellus congue vel quam nec luctus. In accumsan at eros in dignissim. Cras sodales nisi non accumsan.</p>
-          <a href="/form" class="btn btn-outline-light btn-lg rounded-pill mt-3">Do You Need Help?</a>
+          <p class="lead">Trijyaja App adalah aplikasi yang digunakan untuk melakukan booking di Benkel Trijaya.</p>
+          <a href="/form" class="btn btn-outline-light btn-lg rounded-pill mt-3">Book Now</a>
         </div>
       </div>
     </div>

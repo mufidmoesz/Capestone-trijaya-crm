@@ -61,11 +61,10 @@
             </div>
             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">Library Management System</h4>
-                <p class="small mb-0">LMS adalah aplikasi berbasis web yang efisien untuk
-                    pengelolaan perpustakaan dengan berbagai manfaat, baik untuk pengelola perpustakaan maupun
-                    End User. </p>
-              </div>
+                <h4 class="mb-4">Trijaya App</h4>
+                <p class="small mb-0 text">Trijyaja App adalah aplikasi yang digunakan untuk 
+                  melakukan booking di Benkel Trijaya. </p>
+              </div>    
             </div>
           </div>
         </div>

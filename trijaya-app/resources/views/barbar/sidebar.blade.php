@@ -22,10 +22,7 @@
                     <a href="addons">Sparepart</a>
                 </li>
                 <li>
-                    <a href="#">Customer List</a>
-                </li>
-                <li>
-                    <a href="#">Feedback</a>
+                    <a href="/customers">Customer List</a>
                 </li>
             </ul>
 
